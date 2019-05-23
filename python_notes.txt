@@ -1,0 +1,166 @@
+Lists are mutable. Strings and Tuples are IMMUTABLE.
+
+For i in range(10): # for loop syntax
+
+def functionName(argument1, arg2, ...): # function syntax
+
+Errors – ZeroDivisionError, IndexError (lists), KeyError (dictionaries), Value Error (lists)
+
+try:
+except ZeroDivisonError: # try-except block syntax
+
+List Methods
+
+1. del listName[index]   # deletes item at index entered
+
+2. listName.index(value_to_be_found)  # returns index of entered item and throws a ValueError if it isn’t in the list
+
+3. listName.append(val_to_append)  # adds argument to the end of the list
+
+4. listName.insert(index, arg)  # adds arg to list and entered index
+
+5. listName.remove(arg)  # deletes first instance of arg in list and throws ValueError if the value does not exist in the list
+
+6. spam.sort() # sorts the list and returns nothing
+
+7. spam.sort(reverse=True) # reverse sorts list
+
+Copy Module
+
+copy.copy(listName)   # returns a duplicate copy of the argument
+
+* copy.deepcopy(list)  # copies inner lists as well
+
+Dictionary Methods
+
+1. dict.keys()  # returns iterable dict_keys of the dictionary’s keys
+
+2. dict.values()  # returns iterable dict_values of the dictionary’s values
+
+3. dict.items()  # returns tuples of the key and value
+
+4. dict.get(key, fallback) # returns value and if not found, returns fallback value
+
+5. dict.setdefault(key, def)  # checks for key and if not found, sets key value to default entered.
+
+6. pprint module -
+	pprint.pprint(dict) 
+	{key1: val1,
+	 key2: val2,...
+	 keyn: valn}
+	pprint.format(dict) # returns prettified string value without displaying it
+
+String Methods
+
+1. str.upper()  # returns uppercase str
+2. str.lower()  # returns lowercase str
+3. str.isupper()  # returns true if string is uppercase
+4. str.islower()  # returns true if string is lowercase
+5. str.isalpha()  # returns true if str has only letters and not blank
+6. str.isalnum() # true if only alphanumeric and not blank
+7. str.isdecimal() # true if string only has numeric characters
+8. str.isspace()  # True if string only has spaces, tabs, new-lines and not blank
+9. str.istitle()  # true if all words begin with uppercase letter
+10. str.startswith(sub) # true if starts with sub
+11. str.endswith(sub) # true if ends with sub
+12. sep.join(listName) # joins list items with separator
+13. str.split() # splits string on whitespace characters into list
+14. str.split(sep) # splits string on sep into list
+15. str.rjust(length, arg=’ ‘)  # returns padded version of str with str right justified, arg fills character other than space
+16. str.ljust(length, arg=’ ‘) # see above
+17. str.center(length, arg=’ ‘) # Centers text
+18. str.strip(arg=’ ‘)  # removes arg from beginning & end of str
+
+pyperclip module 
+
+1. pyperclip.copy(arg)  # copies arg to clipboard
+2. pyperclip.paste()  # returns/pastes contents of clipboard
+
+re module and regex
+
+1. re.compile(regex)   # creates regex object
+2. regex.search(text)  # returns first match object in text
+3. mo.group()  # returns matched text in match object
+4. mo.group(grp_num)  # returns grp_num group of match object
+5. mo.groups()  # returns tuple of all groups in match object
+
+regex notation
+
+1. r’a|b’ - matches with a or b
+2. r’Bat(wo)?man’ - matches with Batman AND Batwoman, zero or more
+3. r’Bat(wo)*man’ - matches with Batman, Batwoman, Batwowoman, ..., zero or more
+4. r’Bat(wo)+man’ - matches with Batwoman, Batwowoman, ..., one or more
+5. r’(Ha){3}’ – matches HaHaHa
+6. r’(Ha){1,3}’ – matches Ha, HaHa, HaHaHa
+7. r’(Ha){3,5}’ - returns greedy (longest possible) match
+8. r’(Ha){3,5}?’ - returns non-greedy (shortest possible) match
+9. \d – Any numberic digit 0-9
+10. \D – Any character except numeric digit (0-9)
+11. \w – Any letter, numberic digit, or underscore character
+12. \W – Any character except a letter, numberic digit or underscore character
+13. \s – Any space, tab, or newline character
+14. \S – Any character except a space, tab, or newline
+15. r’^Hello’ - checks for match at the BEGINNING of text
+16. r’Hello?’ - checks for match at the END of text
+17. r’.at’ - . matches everything except newline. Matches cat, rat, bat, flat, ...
+18. r’(.*) - matches anything and everything
+
+re Methods
+
+1. regex.findall(text) # returns list (list of tuples for groups) of all matched strings
+
+re.compile(‘.*’, re.DOTALL)  # matches ALL characters including newline
+
+re.compile(r‘saDNe’, re.I)  # makes regex case insensitive
+
+re.compile(r’’’(
+
+		)‘’’, re.VERBOSE)  # ignores whitespace and comments inside the regex string
+
+2. regex.sub(changeto, text)  # subsitutes all matches in text with changeto
+
+3. regex.sub(r’\1****’, txt) # \1 with text matched by group 1
+
+re.compile(regex, re.I | re.DOTALL | re.VERBOSE) # combines all
+
+os Module
+
+1. os.path.join(‘usr’, ‘bin’, ‘spam’) # Returns string with file path using OS specific path separators
+2. os.getcwd()  # returns current working directory
+3. os.chdir(dirPath)   # changes cwd to specified directory
+4. os.makedirs(dirPath)  # makes new directory(ies) at specified path
+5. os.path.abspath(path)  # returns string of absolute path of arg
+6. os.path.isabs(path) # returns True if arg is an absolute path
+7. os.path.relpath(path, start=’.’)  # returns string of relative path from the start path to path
+8. os.path.basename(‘/home/sanya/chapter7’) # returns path upto last slash
+9. os.path.dirname(‘/home/sanya/chapter7’) # returns everything after last slash
+10. os.path.split(filePath)  # returns tuple containing basename and dirname
+11. os.path.getsize(path) # returns file size in bytes of file in path
+12. os.listdir(path)  # returns list of filename strings for each file in path
+13. os.path.exists(path)  # returns true if file or folder exists
+14. os.path.isfile(path) # returns true if path exist and is file
+15. os.path.isdir(path) # returns true if path exist and is folder
+
+File I/O
+
+1. helloFile = open(path)  # opens file in read mode
+2. helloFile.read()  # returns entire contents of file as a string
+3. helloFile.readlines()  # returns list of string values, one for each line of text
+4. baconFile = open(path, ‘w’)  # opens blank file in write mode
+5. baconFile = open(path, ‘a’)  # opens file in append mode
+
+shelve Module
+
+1. shelfFile = shelve.open(‘mydata’)  # stores returned shelve value in variable
+2. cats = [‘a’, ‘b’, ‘c’]
+   shelfFile[‘cats’] = cats  # stores list in shelf file like a dictionary
+3. shelfFile.close()  # closes shelf file
+4. list(shelfFile.keys()) # returns list of keys in shelfFile
+5. list(shelfFile.values()) # returns list of values in shelfFile
+
+shutil Module
+
+1. shutil.copy(source, destination)  # copies file at path source to the folder at past destination and returns a string of the path of copied file
+* if filename is specified in path destination, file is renamed, otherwise origin name is used
+
+2. shutil.copytree(src, dest)  # copies intire folder and every folder and file in it.
