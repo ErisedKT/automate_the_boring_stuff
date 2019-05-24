@@ -34,7 +34,7 @@ def backupToZip(folder):
         # Add the current folder to the ZIP file.
         # Finds archive name for folder
         arcname = os.path.relpath(foldername, os.path.dirname(folder))   
-        backupZip.write(foldername, arcname)
+        backupZip.write(foldername, arcname, compress_type=zipfile.ZIP_DEFLATED)
 
         # Add all the files in this folder to the ZIP file.
         for filename in filenames:
@@ -45,7 +45,7 @@ def backupToZip(folder):
             # Find archive name for file
             fname = os.path.relpath(os.path.join(foldername, filename), \
                 os.path.dirname(folder))   
-            backupZip.write(os.path.join(foldername, filename), fname)
+            backupZip.write(os.path.join(foldername, filename), fname, compress_type=zipfile.ZIP_DEFLATED)
     backupZip.close()
     print('Done.')
 
