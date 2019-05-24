@@ -1,4 +1,4 @@
-#! python3
+#! /usr/bin/python3
 # renameDates.py - Renames filenames with American 
 # MM-DD-YYYY date format to European DD-MM-YYYY.
 
@@ -38,12 +38,12 @@ for amerFilename in os.listdir('.'):
         + monthPart + '-' + yearPart + afterPart
 
     # Get the full, absolute file paths.
-
-    euroFilename = os.path.abspath(euroFilename)
-    amerFilename = os.path.abspath(amerFilename)
+    
+    absWorkingDir = os.path.abspath('.')
+    euroFilename = os.path.join(absWorkingDir, euroFilename)
+    amerFilename = os.path.join(absWorkingDir, amerFilename)
 
     # Rename the files.
 
     print('Renaming "%s" to "%s"...' % (amerFilename, euroFilename))
     shutil.move(amerFilename, euroFilename)
-
