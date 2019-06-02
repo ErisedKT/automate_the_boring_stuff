@@ -1,0 +1,11 @@
+#! /usr/bin/python3
+# music - Plays lofi hip-hop music by Chilled Cow.
+# Usage: music 
+
+import webbrowser, sys
+
+if len(sys.argv) != 1:
+	print('Usage: music')
+	sys.exit()
+
+webbrowser.open('https://www.youtube.com/watch?v=hHW1oY26kxQ')

@@ -1,0 +1,10 @@
+#! /usr/bin/python3
+# automate - Opens a chapter of Automate the Boring Stuff.
+# Usage: automate <number>
+
+import webbrowser, sys
+
+if len(sys.argv) != 2:
+	print('Usage: automate <number>')	
+else:
+	webbrowser.open('https://automatetheboringstuff.com/chapter' + str(sys.argv[1]))
