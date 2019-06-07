@@ -1,5 +1,5 @@
 #! /usr/bin/python3
-# lucky.py - Opens several Amazon search results.
+# searchAmazon.py - Opens several Amazon search results.
 
 import webbrowser, sys, requests, bs4, logging
 
