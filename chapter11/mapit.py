@@ -1,5 +1,5 @@
 #! /usr/bin/python3
-# mapit - Launches a map in the browser using an address
+# mapit.py - Launches a map in the browser using an address
 # from the command line or clipboard
 # Usage: mapit OR mapit <address>
 
