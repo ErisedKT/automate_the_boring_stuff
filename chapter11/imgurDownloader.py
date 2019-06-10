@@ -1,6 +1,6 @@
 #! /usr/bin/python3
 # openImgur.py - Opens several Imgur search results.
-# Usage: ./openImgur.py <numberOfResults> <search category>
+# Usage: ./imgurDownloader.py <numberOfResults> <search category>
 
 import sys, webbrowser, bs4, requests, os
 
