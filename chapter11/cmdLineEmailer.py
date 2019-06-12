@@ -23,11 +23,11 @@ browser.get('https://login.yahoo.com/') # Go to Yahoo login page.
 # Login using email and password.
 
 emailElem = browser.find_element_by_id('login-username')
-emailElem.send_keys('not-my-real-email')
+emailElem.send_keys('shivanjay20012001@yahoo.co.in')
 nextElem = browser.find_element_by_id('login-signin')
 nextElem.click()
 passwordElem = wait_for_page_load(browser, 5, By.ID, 'login-passwd')
-passwordElem.send_keys('definitely-not-my-real-password')
+passwordElem.send_keys('shibu123')
 browser.find_element_by_id('login-signin').send_keys(Keys.ENTER)
 
 # Redirect to Yahoo Mail page.
