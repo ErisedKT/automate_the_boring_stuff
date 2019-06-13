@@ -10,6 +10,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
+SENDER = 'not-my-email'
+PASSWORD = 'definitely-not-my-password'
 def wait_for_page_load(browser, delay, by, selector):
     try:
         elem = WebDriverWait(browser, delay).until(EC.presence_of_element_located((by, selector)))
@@ -23,16 +25,16 @@ browser.get('https://login.yahoo.com/') # Go to Yahoo login page.
 # Login using email and password.
 
 emailElem = browser.find_element_by_id('login-username')
-emailElem.send_keys('shivanjay20012001@yahoo.co.in')
+emailElem.send_keys(SENDER)
 nextElem = browser.find_element_by_id('login-signin')
 nextElem.click()
 passwordElem = wait_for_page_load(browser, 5, By.ID, 'login-passwd')
-passwordElem.send_keys('shibu123')
+passwordElem.send_keys(PASSWORD)
 browser.find_element_by_id('login-signin').send_keys(Keys.ENTER)
 
 # Redirect to Yahoo Mail page.
 
-mailElem = wait_for_page_load(browser, 5, By.ID, 'uh-mail-link')
+mailElem = wait_for_page_load(browser, 20, By.ID, 'uh-mail-link')
 mailElem.send_keys(Keys.ENTER)
 
 # Click Compose button in mail.

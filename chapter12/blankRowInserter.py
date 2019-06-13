@@ -1,21 +1,24 @@
 #! /usr/bin/python3
 # blankRowInserter.py - Inserts blank rows into the spreadsheet.
+# Usage: ./blankRowInserter.py <start_row> <number_of_blank_rows> <workbook_name>
 
 import openpyxl, sys
 
+# N: Starting row.
+# M: Number of blank rows.
 N, M = int(sys.argv[1]), int(sys.argv[2])
 
-read_wb = openpyxl.load_workbook(sys.argv[3])
-read_sheet = read_wb.active
-write_wb = openpyxl.Workbook()
-write_sheet = write_wb.active
+# Open workbook.
+wb = openpyxl.load_workbook(sys.argv[3])
+sheet = wb.active
 
-for i in range(1, N):
-    for j in range(1, read_sheet.max_column):
-        write_sheet.cell(row=i, column=j).value = read_sheet.cell(row=i, column=j).value
+# Slice rows to be moved.
+moveRows = tuple(sheet[str(N + M) + ':' + str(sheet.max_row)])[::-1]
 
-for i in range(N, read_sheet.max_row + 1):
-    for j in range(1, read_sheet.max_column):
-        write_sheet.cell(row=i+M, column=j).value = read_sheet.cell(row=i, column=j).value
+# Change row attribute of Cell objects in moveRows.
+for rowOfCellObj in moveRows:
+    for cellObj in rowOfCellObj:
+        cellObj.row += M
 
-write_wb.save('updated' + sys.argv[3])
+# Save updated file.
+wb.save('updated_' + sys.argv[3])
